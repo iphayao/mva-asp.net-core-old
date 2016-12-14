@@ -11,7 +11,7 @@ namespace ConsoleApplication
         {
             app.Run(
                 context => { 
-                    return context.Response.WriteAsync("Hello, World on the web");
+                    return context.Response.WriteAsync("Hello, MVA");
                 }
             );
         }
