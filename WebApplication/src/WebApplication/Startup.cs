@@ -29,10 +29,20 @@ namespace WebApplication
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            if(env.IsDevelopment())
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
+                app.Run(async (context) =>
+                {
+                    await context.Response.WriteAsync("Hello Development!");
+                });
+            }
+            else
+            {
+                app.Run(async (context) =>
+                {
+                    await context.Response.WriteAsync("Hello Production!");
+                });
+            }
 
         }
     }
