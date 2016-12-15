@@ -42,7 +42,7 @@ namespace WebApplication
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync($"Hello { env.EnvironmentName } it's something {Configuration["message"]}");
+                await context.Response.WriteAsync(MariaLib.Class1.Greeting());
             });
 
         }
