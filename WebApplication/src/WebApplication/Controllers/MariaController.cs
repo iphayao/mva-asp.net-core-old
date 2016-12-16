@@ -12,4 +12,12 @@ namespace WebApplication.Controllers
 
         public string SomethingElse() => "Hello Maria from MVC!";
     }
+
+    public class ScottController
+    {
+        public string Index()
+        {
+            return "Hey it's Scott";
+        }
+    }
 }

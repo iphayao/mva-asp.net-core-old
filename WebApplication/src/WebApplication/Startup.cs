@@ -49,7 +49,7 @@ namespace WebApplication
                 //scott/products/4
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Maria}/{action=SomethingElse}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
         }
