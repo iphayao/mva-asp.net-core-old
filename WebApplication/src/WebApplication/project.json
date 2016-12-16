@@ -11,7 +11,8 @@
     "Microsoft.AspNetCore.StaticFiles": "1.1.0",
     "Microsoft.Extensions.Configuration.Json": "1.1.0",
     "MariaLib": "1.0.0-*",
-    "Microsoft.AspNetCore.Routing": "1.1.0"
+    "Microsoft.AspNetCore.Routing": "1.1.0",
+    "Microsoft.AspNetCore.Mvc.Cors": "1.1.0"
   },
 
   "tools": {

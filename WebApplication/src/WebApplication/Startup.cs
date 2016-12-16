@@ -28,8 +28,7 @@ namespace WebApplication
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDirectoryBrowser();
-            services.AddRouting();
+            services.AddMvcCore();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,25 +41,7 @@ namespace WebApplication
                 app.UseDeveloperExceptionPage();
             }
 
-            // Router
-            var routeBuilder = new RouteBuilder(app);
-
-            routeBuilder.MapGet("post/{postNumber:int}", context => 
-                    context.Response.WriteAsync($"Blog post id : {context.GetRouteValue("postNumber")}"));
-
-            routeBuilder.MapGet("post/{postNumber}", context =>
-                    context.Response.WriteAsync($"Blog post string : {context.GetRouteValue("postNumber")}"));
-
-            routeBuilder.MapGet("", context => context.Response.WriteAsync("Hello from Routing"));
-            routeBuilder.MapGet("maria", context => context.Response.WriteAsync("Hello from Maria's Routing"));
-            routeBuilder.MapGet("scott/foo", context => context.Response.WriteAsync("Hello from Scott's Routing"));
-
-            app.UseRouter(routeBuilder.Build());
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync(MariaLib.Class1.Greeting());
-            });
+            app.UseMvc();
 
         }
     }
