@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 
@@ -28,6 +29,7 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDirectoryBrowser();
+            services.AddRouting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +41,11 @@ namespace WebApplication
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Router
+            var routeBuilder = new RouteBuilder(app);
+            routeBuilder.MapGet("", context => context.Response.WriteAsync("Hello from Routing"));
+            app.UseRouter(routeBuilder.Build());
 
             app.Run(async (context) =>
             {
