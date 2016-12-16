@@ -45,6 +45,7 @@ namespace WebApplication
             // Router
             var routeBuilder = new RouteBuilder(app);
             routeBuilder.MapGet("", context => context.Response.WriteAsync("Hello from Routing"));
+            routeBuilder.MapGet("maria", context => context.Response.WriteAsync("Hello from Maria's Routing"));
             app.UseRouter(routeBuilder.Build());
 
             app.Run(async (context) =>
