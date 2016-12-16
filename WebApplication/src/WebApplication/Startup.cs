@@ -41,7 +41,16 @@ namespace WebApplication
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseMvc(routes => 
+            {
+                //home
+                //home/index
+                //home/index/5
+                //scott/products/4
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Maria}/{action=SomethingElse}/{id?}");
+            });
 
         }
     }

@@ -8,10 +8,8 @@ namespace WebApplication.Controllers
 {
     public class MariaController
     {
-        [HttpGet("/")]
         public string Index() => "Hello from MVC!";
 
-        [HttpGet("/Maria")]
         public string SomethingElse() => "Hello Maria from MVC!";
     }
 }
