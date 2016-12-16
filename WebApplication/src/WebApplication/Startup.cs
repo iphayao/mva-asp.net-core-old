@@ -44,12 +44,16 @@ namespace WebApplication
 
             // Router
             var routeBuilder = new RouteBuilder(app);
-            routeBuilder.MapGet("", context => context.Response.WriteAsync("Hello from Routing"));
-            routeBuilder.MapGet("maria", context => context.Response.WriteAsync("Hello from Maria's Routing"));
-            routeBuilder.MapGet("scott/foo", context => context.Response.WriteAsync("Hello from Scott's Routing"));
 
             routeBuilder.MapGet("post/{postNumber:int}", context => 
                     context.Response.WriteAsync($"Blog post id : {context.GetRouteValue("postNumber")}"));
+
+            routeBuilder.MapGet("post/{postNumber}", context =>
+                    context.Response.WriteAsync($"Blog post string : {context.GetRouteValue("postNumber")}"));
+
+            routeBuilder.MapGet("", context => context.Response.WriteAsync("Hello from Routing"));
+            routeBuilder.MapGet("maria", context => context.Response.WriteAsync("Hello from Maria's Routing"));
+            routeBuilder.MapGet("scott/foo", context => context.Response.WriteAsync("Hello from Scott's Routing"));
 
             app.UseRouter(routeBuilder.Build());
 
