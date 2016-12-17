@@ -65,6 +65,15 @@ namespace WebApplicationMovie
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            var startupLogger = loggerFactory.CreateLogger<Startup>();
+
+            startupLogger.LogCritical("boo!");
+            startupLogger.LogDebug("boo!");
+            startupLogger.LogError("boo!");
+            startupLogger.LogInformation("boo!");
+            startupLogger.LogWarning("boo!");
+            startupLogger.LogTrace("boo!");
+
             app.UseApplicationInsightsRequestTelemetry();
 
             if (env.IsDevelopment())
