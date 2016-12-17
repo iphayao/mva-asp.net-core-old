@@ -13,12 +13,20 @@ namespace WebApplication.Controllers
         public string SomethingElse() => "Hello Maria from MVC!";
     }
 
+    public class ScottIndexViewModel
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
     public class ScottController : Controller
     {
         public IActionResult Index()
         {
-            ViewData["Message"] = "Hello from scott controller";
-            return View();
+            // get the model from the database or wherever
+            var vm = new ScottIndexViewModel() { Age = 29, Name = "Scott" };
+            // do some stuff
+            return View(vm);
         }
 
         
