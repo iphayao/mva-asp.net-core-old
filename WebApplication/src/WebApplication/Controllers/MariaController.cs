@@ -17,6 +17,7 @@ namespace WebApplication.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Message"] = "Hello from scott controller";
             return View();
         }
 
