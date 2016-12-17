@@ -1,0 +1,22 @@
+2016-12-17 12:02:41.192 +07:00 [Fatal] boo!
+2016-12-17 12:02:41.207 +07:00 [Error] boo!
+2016-12-17 12:02:41.207 +07:00 [Information] boo!
+2016-12-17 12:02:41.208 +07:00 [Warning] boo!
+2016-12-17 12:02:41.387 +07:00 [Information] User profile is available. Using '"C:\Users\Phayao\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2016-12-17 12:02:41.610 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/  
+2016-12-17 12:02:41.968 +07:00 [Information] Executing action method "WebApplicationMovie.Controllers.HomeController.Index (WebApplicationMovie)" with arguments (null) - ModelState is Valid
+2016-12-17 12:02:43.503 +07:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".
+2016-12-17 12:02:44.078 +07:00 [Information] Executed action "WebApplicationMovie.Controllers.HomeController.Index (WebApplicationMovie)" in 2189.6445ms
+2016-12-17 12:02:44.118 +07:00 [Information] Request finished in 2528.0322ms 200 text/html; charset=utf-8
+2016-12-17 12:03:11.299 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/movie  
+2016-12-17 12:03:11.302 +07:00 [Information] Request finished in 3.5852ms 404 
+2016-12-17 12:03:29.697 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/scott  
+2016-12-17 12:03:29.698 +07:00 [Information] Request finished in 1.3596ms 404 
+2016-12-17 12:03:35.058 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/movies  
+2016-12-17 12:03:35.062 +07:00 [Information] Executing action method "WebApplicationMovie.Controllers.MoviesController.Index (WebApplicationMovie)" with arguments (null) - ModelState is Valid
+2016-12-17 12:03:36.416 +07:00 [Information] Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [m].[ID], [m].[Genre], [m].[Price], [m].[ReleaseDate], [m].[Title]
+FROM [Movie] AS [m]
+2016-12-17 12:03:36.696 +07:00 [Information] Executing ViewResult, running view at path "/Views/Movies/Index.cshtml".
+2016-12-17 12:03:36.808 +07:00 [Information] Executed action "WebApplicationMovie.Controllers.MoviesController.Index (WebApplicationMovie)" in 1739.0323ms
+2016-12-17 12:03:36.815 +07:00 [Information] Request finished in 1756.1233ms 200 text/html; charset=utf-8

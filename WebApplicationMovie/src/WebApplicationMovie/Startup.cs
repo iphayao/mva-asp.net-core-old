@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using WebApplicationMovie.Data;
 using WebApplicationMovie.Models;
 using WebApplicationMovie.Services;
+using System.IO;
+using Serilog;
 
 namespace WebApplicationMovie
 {
@@ -24,6 +26,9 @@ namespace WebApplicationMovie
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
+            var logFile = Path.Combine(env.ContentRootPath, "mylogfile.txt");
+            Log.Logger = new LoggerConfiguration().WriteTo.File(logFile).CreateLogger();
+            
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
@@ -64,6 +69,7 @@ namespace WebApplicationMovie
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            loggerFactory.AddSerilog();
 
             var startupLogger = loggerFactory.CreateLogger<Startup>();
 
